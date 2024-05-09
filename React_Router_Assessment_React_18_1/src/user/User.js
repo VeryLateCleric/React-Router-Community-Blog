@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useParams } from "react";
 import UserProfile from "./UserProfile";
 import { fetchUserWithPosts } from "../api";
 import PostList from "./PostList";
@@ -8,7 +8,7 @@ import ErrorMessage from "../common/ErrorMessage";
 export const User = () => {
   const [user, setUser] = useState({ posts: [] });
   const [error, setError] = useState(undefined);
-  const userId = 1; // TODO: This ID will need to be pulled from parameters.
+  const { userId } = useParams(); // TODO: This ID will need to be pulled from parameters. STATUS: DONE
 
   useEffect(() => {
     const abortController = new AbortController();
@@ -18,14 +18,12 @@ export const User = () => {
 
     return () => abortController.abort();
   }, [userId]);
-
-  // TODO: Change the link below to go back to the home page.
-
+  
   if (error) {
     return (
       <ErrorMessage error={error}>
         <p>
-          <a>Return Home</a>
+          <Link to="/">Return Home</Link>
         </p>
       </ErrorMessage>
     );

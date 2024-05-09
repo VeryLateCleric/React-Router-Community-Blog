@@ -13,6 +13,7 @@ export const Post = ({ posts }) => {
     if (result) {
       await deletePost(id);
       // TODO: After the post is deleted, send the user to the home page.
+      // STATUS:
     }
   };
 
