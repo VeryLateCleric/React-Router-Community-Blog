@@ -18,7 +18,7 @@ export const User = () => {
 
     return () => abortController.abort();
   }, [userId]);
-  
+
   if (error) {
     return (
       <ErrorMessage error={error}>
@@ -45,9 +45,10 @@ export const User = () => {
 
         {user.id ? (
           <div className="p-4 border border-top-0">
-            {/* TODO: Change to display sub route content */}
-            <PostList posts={user.posts} />
-            <UserProfile user={user} />
+            <Routes>
+              <Route path="/" element={<UserProfile  user={user} />} />
+              <Route path="/posts" element={<PostList posts={user.posts} />} />
+            </Routes>
           </div>
         ) : (
           <div className="p-4 border border-top-0">
