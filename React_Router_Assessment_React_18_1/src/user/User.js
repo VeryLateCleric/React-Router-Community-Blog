@@ -1,4 +1,5 @@
-import React, { useEffect, useState, useParams } from "react";
+import React, { useEffect, useState } from "react";
+import { Link, useParams, Routes, Route } from "react-router-dom";
 import UserProfile from "./UserProfile";
 import { fetchUserWithPosts } from "../api";
 import PostList from "./PostList";
@@ -8,7 +9,7 @@ import ErrorMessage from "../common/ErrorMessage";
 export const User = () => {
   const [user, setUser] = useState({ posts: [] });
   const [error, setError] = useState(undefined);
-  const { userId } = useParams(); // TODO: This ID will need to be pulled from parameters. STATUS: DONE
+  const { userId } = useParams(); // TODO: This ID will need to be pulled from parameters. STATUS: 
 
   useEffect(() => {
     const abortController = new AbortController();
