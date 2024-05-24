@@ -9,7 +9,7 @@ import UserProfile from "./user/UserProfile";
 function RootRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<CardList />}/>
+      <Route exact path="/" element={<CardList />}/>
       <Route path="/users/:userId" element={<User />}/>
       <Route path="/users/:userId/posts" element={<PostList />}/>
       <Route path="/users/:userId" element={<UserProfile />}/>
